@@ -1,10 +1,10 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
-from . import views
+from .views import UserView
 
 
 
 urlpatterns = [
+    path("", UserView.as_view()),
+    path("<uuid:user_id>/", UserView.as_view()),
 ]
 

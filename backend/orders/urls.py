@@ -1,10 +1,11 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
-from . import views
+from .views import OrderView
 
 
 
 urlpatterns = [
+    path("", OrderView.as_view(), name="order"),
+    path("<uuid:order_id>/", OrderView.as_view(), name="one-order"),
 ]
+
 
